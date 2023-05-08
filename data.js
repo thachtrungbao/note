@@ -50,7 +50,7 @@ const public = [
     id: 8,
     Image: "./assets/img/content-img.jpg",
     title: "Title 8",
-    content: "bcc",
+    content: "pas",
   },
 ];
 
@@ -58,10 +58,12 @@ const myContent = document.querySelector(".tab-content");
 
 const showInHtml = public.map((project, index) => {
   return `
-            
-                <div class="tab-content-icon-item">
+                  <div class="tab-content-icon-item">
                   <img src=${project.Image} alt="" class="content-icon-img"/>
                   <h5 class="icon-heading"> ${project.title}</h5>
+                  <div id="hide">
+                    <p class="content">${project.content}</p>
+                  </div>
                 </div> `;
 });
 
@@ -74,12 +76,14 @@ const sortListButton = document.querySelector(".sort-list");
 function showIconsHorizontal() {
   iconContainer.classList.add("horizontal");
   iconContainer.classList.remove("vertical");
+
   const showInHtml = public.map((project, index) => {
     return `
-              
+
                   <div class="tab-content-icon-item">
                     <img src=${project.Image} alt="" class="content-icon-img"/>
                     <h5 class="icon-heading"> ${project.title}</h5>
+                  <p class="content">${project.content}</p>
                   </div> `;
   });
 
@@ -95,11 +99,8 @@ function showIconsVertical() {
   const iconheading = document.querySelectorAll(".icon-heading");
 
   iconItems.forEach((item) => {
-    item.style.marginTop = "-25px";
     item.style.width = "1400px";
     item.style.height = "60px";
-    item.style.marginBottom = "20px";
-    item.style.hover = "none";
   });
   iconheading.forEach((item) => {
     item.style.marginLeft = "65px";
@@ -113,12 +114,12 @@ function showIconsVertical() {
   });
 }
 
-// Xử lý sự kiện click nút "sort-icon"
+// click "sort-icon"
 sortIconButton.addEventListener("click", () => {
   showIconsHorizontal();
 });
 
-// Xử lý sự kiện click nút "sort-list"
+// click "sort-list"
 sortListButton.addEventListener("click", () => {
   showIconsVertical();
 });
