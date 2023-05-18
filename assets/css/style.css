@@ -220,35 +220,13 @@ input {
   margin-bottom: 30px;
 }
 
-.nav-tabs li {
-  margin-right: 10px;
-}
-
-.nav-tabs li a {
-  display: block;
-  padding: 6px 10px;
-  text-decoration: none;
+.nav-tabs h3 {
+  margin-left: 15px;
   color: #8f8f8f;
-  position: relative;
 }
 
-.tab.active {
-  color: blue;
-}
-
-.nav-tabs li a::after {
-  content: "";
-  height: 2px;
-  width: 100%;
-  position: absolute;
-  left: 0px;
-  bottom: -1px;
-  background: transparent;
-}
-
-.nav-tabs li.active a::after,
-.nav-tabs li:hover a::after {
-  background: #3e70e8;
+.nav-tabs h3:hover {
+  cursor: pointer;
 }
 
 .tab-sort {
@@ -276,11 +254,9 @@ input {
 .tab-content-icon-item {
   width: 220px;
   height: 250px;
-  /* margin-bottom: 10px; */
   padding: 10px 10px;
-  /* margin-left: 30px; */
+  margin-bottom: 10px;
   display: inline-block;
-  /* margin-top: 20px; */
 }
 
 .tab-content-list-item {
@@ -326,11 +302,39 @@ input {
   height: 280px;
   margin-bottom: 10px;
   padding: 10px 10px;
-  margin-left: 30px;
   display: inline-block;
+  /* margin: 10px; */
 }
 
 .private-content-item:hover {
   background-color: #e5e5e5;
   border-radius: 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.nav-tabs button:hover {
+  border-bottom: 1px solid;
+}
+
+.nav-tabs button.active {
+  border-bottom: 1px solid #3e70e8;
+  color: #3e70e8;
+}
+
+.tabcontent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tablinks {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #8f8f8f;
 }
