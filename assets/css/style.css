@@ -303,7 +303,7 @@ input {
   margin-bottom: 10px;
   padding: 10px 10px;
   display: inline-block;
-  /* margin: 10px; */
+  margin-right: 10px;
 }
 
 .private-content-item:hover {
@@ -325,8 +325,11 @@ input {
 }
 
 .tabcontent {
-  display: flex;
   flex-wrap: wrap;
+}
+
+.tabcontent#private-container {
+  display: none;
 }
 
 .tablinks {
@@ -338,3 +341,7 @@ input {
   text-transform: uppercase;
   color: #8f8f8f;
 }
+
+/* .public-content {
+  display: none;
+} */

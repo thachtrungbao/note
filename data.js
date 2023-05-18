@@ -1,8 +1,13 @@
+function __main__() {
+  port = 3000;
+  host = "localhost";
+}
+
 const myInput = document.getElementById("myInput");
 myInput.addEventListener("change", () => {
   console.log(myInput.value);
 });
-
+const _bool = 0;
 var publicData = [
   {
     id: 1,
@@ -111,11 +116,9 @@ publicContainer.innerHTML = publicData
   .map((data) => {
     return `
   <div class="tab-content-icon-item">
-  
     <img src="${data.Image}" alt="" class="content-icon-img"/>
-
     <h5 class="icon-heading">${data.title}</h5>
-    <p class="content">${data.content}</p>
+    <p class="public-content">${data.content}</p> 
   </div>
 </div>
   `;
@@ -126,10 +129,8 @@ var privateContainer = document.getElementById("private-container");
 privateContainer.innerHTML = privateData
   .map((data) => {
     return `
-    <div class="private-content-item">
-
+  <div class="private-content-item">
     <img src="${data.Image}" alt="" class="private-img"/>
-
     <h5 class="private-heading">${data.title}</h5>
     <p class="private-content">${data.content}</p>
   </div>
@@ -137,25 +138,21 @@ privateContainer.innerHTML = privateData
   `;
   })
   .join("");
-
 const iconContainer = document.querySelector(".tab-content");
 const sortIconButton = document.querySelector(".sort-icon");
 const sortListButton = document.querySelector(".sort-list");
-
+const text = 0;
 // Hàm hiển thị các icon theo hàng ngang
 function showIconsHorizontal() {
   iconContainer.classList.add("horizontal");
   iconContainer.classList.remove("vertical");
-
   publicContainer.innerHTML = publicData
     .map((data) => {
       return `
   <div class="tab-content-icon-item">
-  
     <img src="${data.Image}" alt="" class="content-icon-img"/>
-
     <h5 class="icon-heading">${data.title}</h5>
-    <p class="content">${data.content}</p>
+    <p class="public-content">${data.content}</p>
   </div>
 </div>
   `;
@@ -165,12 +162,10 @@ function showIconsHorizontal() {
   privateContainer.innerHTML = privateData
     .map((data) => {
       return `
-    <div class="private-content-item">
-  
+  <div class="private-content-item">
     <img src="${data.Image}" alt="" class="private-img"/>
-
     <h5 class="private-heading">${data.title}</h5>
-    <p class="private-content">${data.content}</p>
+    <p class="private-content">${data.content}</p>   
   </div>
 </div>
   `;
@@ -185,6 +180,7 @@ function showIconsVertical() {
   const iconItems = document.querySelectorAll(".tab-content-icon-item");
   const image = document.querySelectorAll(".tab-content-icon-item img");
   const iconheading = document.querySelectorAll(".icon-heading");
+  const publicContent = document.querySelectorAll(".public-content");
 
   const privateItem = document.querySelectorAll(".private-content-item");
   const privateImg = document.querySelectorAll(".private-content-item img");
@@ -204,6 +200,9 @@ function showIconsVertical() {
     item.style.height = "50px";
     item.style.marginTop = "-5px";
     item.style.border = "5px solid #e5e5e5";
+  });
+  publicContent.forEach((item) => {
+    item.style.marginLeft = "65px";
   });
 
   privateItem.forEach((item) => {
@@ -228,6 +227,8 @@ function showIconsVertical() {
 // click "sort-icon"
 sortIconButton.addEventListener("click", () => {
   showIconsHorizontal();
+  var isContentIsVisible = true;
+  isContentIsVisible = !isContentIsVisible;
 });
 
 // click "sort-list"
@@ -260,7 +261,6 @@ searchInput.addEventListener("input", function (e) {
 //event tab
 var privateContainer = document.getElementById("private-container");
 var publicContainer = document.getElementById("public-container");
-
 const publicButton = document.querySelector(".public");
 const privateButton = document.querySelector(".private");
 
